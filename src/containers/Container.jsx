@@ -7,7 +7,10 @@ class Container extends Component {
   constructor() {
     super();
     this.state = {
-      board: [ "0","1","2","3","4","5","6","7","8"],
+      board: [ "","","","","","","","",""],
+      players: [
+        {name: "Rebel", src: "MilleniumFalcon.png"}, 
+        {name: "Alliance", src: "StarDestroyer.png"}],
       winningMoves: [ [0,1,2], [3,4,5] [6,7,8], [0,3,6],
                       [1,4,7], [2,6,8], [0,4,8], [2,4,6]],
       move: 0
@@ -18,8 +21,9 @@ class Container extends Component {
 
   resetBoard(){
     this.setState( {
-        board: ["","","","","","","","",""],
-        move: 0
+      board: ["","","","","","","","",""],
+      move: 0,
+      winner: false
     })
   }
 
@@ -28,16 +32,17 @@ class Container extends Component {
     this.setState({move: newMove})
   }
 
-  // isWin() {
-  //   const currentBoard = this.
-  // }
 
   updateBoard(index){
-    const player = this.state.move % 2 === 0 ? "X" : "O"
+    if (this.state.board[index] !== "") {
+      return;
+    }
+
+    const player = this.state.move % 2 === 0 ? this.state.players[0] : this.state.players[1]
     const newBoard = this.state.board.slice(0)
-    newBoard[index] = player
+    newBoard[index] = player.src
+
     this.setState({board: newBoard})
-    // this.isWin()
     this.turn()
   }
 
@@ -46,7 +51,7 @@ class Container extends Component {
     return (
       <div className="container">
         <Button reset={this.resetBoard.bind(this)}/>
-        <h1>Tic Tac Toe</h1>
+        <h1 className="title">Let the wookie win</h1>
         <div className="board">
         {this.state.board.map((value, ind)=>{
           return <Tile
