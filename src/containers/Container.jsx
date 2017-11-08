@@ -8,15 +8,18 @@ class Container extends Component {
     super();
     this.state = {
       board: [ "0","1","2","3","4","5","6","7","8"],
-      winningMoves: [ [0,1,2], [3,4,5] ],
+      winningMoves: [ [0,1,2], [3,4,5] [6,7,8], [0,3,6],
+                      [1,4,7], [2,6,8], [0,4,8], [2,4,6]],
       move: 0
     }
     this.updateBoard = this.updateBoard.bind(this);
+    // this.isWin = this.isWin.bind(this);
   }
 
   resetBoard(){
     this.setState( {
-        board: ["","","","","","","","",""]
+        board: ["","","","","","","","",""],
+        move: 0
     })
   }
 
@@ -25,16 +28,16 @@ class Container extends Component {
     this.setState({move: newMove})
   }
 
-  isWin() {
-
-  }
+  // isWin() {
+  //   const currentBoard = this.
+  // }
 
   updateBoard(index){
     const player = this.state.move % 2 === 0 ? "X" : "O"
     const newBoard = this.state.board.slice(0)
     newBoard[index] = player
     this.setState({board: newBoard})
-    this.isWin()
+    // this.isWin()
     this.turn()
   }
 
