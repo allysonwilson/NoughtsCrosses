@@ -2,14 +2,14 @@ import React from "react";
 
 class Tile extends React.Component {
 
-  tileClicked(props) {
-    props.updateBoard(props.position, props.turn);
+  tileClicked() {
+    this.props.onTileClick(this.props.position)
   }
 
   render() {
     return (
       <div className="indiv-tile"
-        onClick ={()=> this.tileClicked(this.props)}>
+        onClick ={()=> this.tileClicked()}>
         {this.props.value}
       </div>
     );
