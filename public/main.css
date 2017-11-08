@@ -1,7 +1,12 @@
 .title {
   text-align: center;
-  color: grey;
-  font-family: sans-serif;
+  font-family: verdana;
+  color: black;
+  text-shadow:
+    -1px -1px yellow,
+    1px -1px yellow,
+    -1px 1px yellow,
+    1px 1px yellow;
 }
 
 .board {
@@ -20,19 +25,25 @@
   width: 140px;
   height: 140px;
   border: 1px solid grey;
-  text-align: center;
+  text-align: inherit;
   font-size: 20px;
   background-image: url("https://i.ytimg.com/vi/voWpbz1De_M/maxresdefault.jpg");
   background-size: contain;
+  color: white;
 }
 
 .reset-button {
-
+  background-color: black;
+  color: grey;
+  height: 30px;
+  width: auto;
+  margin-right: 200px;
+  outline-color: yellow;
 }
 
 .yoda-footer {
   font-family: cursive;
-  margin-left: 120px;
+  margin-left: 130px;
   color: grey;
 }
 
