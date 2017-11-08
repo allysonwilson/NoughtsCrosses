@@ -2,37 +2,40 @@ import React, { Component } from 'react';
 import Tile from "../components/Tile"
 import Button from "../components/Button"
 
-class App extends Component {
+class Container extends Component {
 
   constructor() {
     super();
     this.state = {
       board: [
-        "","","","","","","","",""]
+        "0","1","2","3","4","5","6","7","8"]
     }
     // this.updateBoard = this.updateBoard.bind(this);
   }
 
-  reset(){
+  resetBoard(){
     this.setState( {
         board: [
           "","","","","","","","",""]
     })
   }
 
-  // updateBoard(props){
-  //
-  // }
+  updateBoard(props){
+
+  }
 
   render(){
     console.log(this)
     return (
       <div className="container">
-        <Button />
+        <Button reset={this.resetBoard.bind(this)}/>
         <h1>Tic Tac Toe</h1>
+        <div className="board">
         {this.state.board.map(function(value, ind){
-          return <Tile className="tile" key={ind} position={ind} value={value}/>
+
+          return <Tile className="indiv-tile" key={ind} position={ind} value={value}/>
         })}
+        </div>
       </div>
 
 
@@ -40,4 +43,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Container;
