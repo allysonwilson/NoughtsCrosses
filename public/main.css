@@ -1,0 +1,9 @@
+.tile {
+  width: 25%;
+  height: 200px;
+  border: 10px dotted black;
+  display: inline-block;
+  text-align: center;
+  font-size: 20px;
+  background: tomato;
+}
