@@ -47,6 +47,12 @@
   color: grey;
 }
 
+.picture {
+  margin-top: 20px;
+  height: 100px;
+  width: 100px;
+}
+
 body {
   background-image: url("http://data.whicdn.com/images/56070908/original.jpg");
   background-size: cover;

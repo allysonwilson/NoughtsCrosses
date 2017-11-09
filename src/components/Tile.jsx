@@ -10,8 +10,8 @@ class Tile extends React.Component {
     return (
       <div className="indiv-tile"
         onClick ={()=> this.tileClicked()}>
-        <div className="picture">
-          {this.props.value}
+        <div>
+          <img className="picture" src={this.props.value} />
         </div>
       </div>
     );
